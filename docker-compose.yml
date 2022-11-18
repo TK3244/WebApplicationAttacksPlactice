@@ -1,0 +1,24 @@
+version : '3'
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: testdb
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+  
+  testapp:
+    build:
+      context: .
+    tty: true
+    restart: always
+    depends_on:
+      - db
+    volumes:
+      - ./go:/go
+    ports:
+      - "8080:8080"

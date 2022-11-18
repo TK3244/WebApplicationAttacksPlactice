@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オープンリダイレクト</title>
+</head>
+<body>
+    <form action="/OpenRedirect/UserLogin" method="POST">
+        ID<input type="text" name="id"><br>
+        パスワード<input type="password" name="pwd"><br>
+        <input type="hidden" name="url" value={{ .url }}>
+        <input type="submit" value="ログイン">
+    </form><br>
+    <div>
+        IDとパスワードは決まっていないので好きなように入力してください。
+        IDとパスワードの両方を埋めればログインが成功すると思いますが、どちらかが不足していれば失敗すると思います。
+        ログインが成功したときに<font color="red">リダイレクト機能</font>を使って成功画面に遷移しています。
+    </div>
+</body>
+</html>

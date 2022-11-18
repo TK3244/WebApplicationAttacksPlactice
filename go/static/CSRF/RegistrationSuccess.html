@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF</title>
+</head>
+<body>
+    <div>
+        <img src="../../resources/images/csrf.png" width="600px" alt="nothing" align="right">
+        USERNAME: {{ .Name }}<br>
+        PASSWORD: {{ .Password }}<br>
+        で登録できました！
+    </div><br>
+    <form action="/CSRF/NewPassword" method="POST">
+        新パスワード<input name="password" type="password"><br>
+        <input type="submit" value="パスワード変更">
+    </form><br>
+    <div>
+        登録が成功したことで、Cookieにより以下のセッションIDが付与されました。<br><br>
+        <font color="red">{{ .ID }}</font><br><br>
+        本サイトではこのセッションIDを使って、ユーザーの認証を行います。<br>
+        パスワード変更も可能なので試してみてください。<br>
+        このセッションID付与が右上の図の③にあたります。
+    </div><br>
+    <div>
+        以下のリンクが、①の罠サイトになります。そして、これにアクセスすることが④にあてはまります。<br>
+        <a href="/CSRF/NewPassword?password=123456">罠サイト</a>
+    </div><br>
+    <div>
+        罠サイトにアクセスすると、勝手にパスワードが123456に変えられると思います。これは罠サイトに隠された不正なリクエストが送られたためです。これが図の⑤にあてはまります。
+        (うまく動作しない場合は、１度クッキーを削除して、はじめからやり直してみてください。クッキーの削除方法はブラウザごとに異なりますので、調べてみてください。)<br>
+        Cookieのみでセッション管理しているため脆弱性が発生し、罠サイトによるリクエストが成功してしまいます。それにより、ユーザーが意図していないパスワードに変えられてしまいました。<br>
+        これがCSRFの一例です。
+    </div>
+</body>
+</html>

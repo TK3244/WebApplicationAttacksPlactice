@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQLインジェクション</title>
+</head>
+<body>
+  <form action="/SQLinjection/HandleForm" method="POST">
+    <img src="../../resources/images/sqlinjection.png" width="600px" alt="nothing" align="right">
+    <p>ID: <input type="text" name="ID" /></p>
+    <p>PASSWORD: <input type="password" name="password" /></p>
+    <p><input type="submit" value="ログイン" /></p>
+  </form>
+  <div>
+    データベースには<br>
+    ID:1<br>
+    PASSWORD:password<br>
+    が登録されています。
+  </div><br>
+  <div>
+    例えば<br>
+    ID:1<br>
+    PASSWORD:AAA<br>
+    と入力したら、<br>
+    <font color="red">SELECT * FROM user WHERE id=1 AND password='AAA'</font><br>
+    というSQL文が作成されます。このSQL文の意味は、userというデータテーブルから、id=1とpassword='AAA'という条件が成り立つ項目をすべて検索するという意味です。<br>
+    データが見つかればログインが成功し、見つからなければ失敗します。
+  </div><br>
+  <div>
+    しかし、IDの部分に<br>
+    1 or 'A'='A'<br>
+    と入力してみてください。<br>
+    こうすることで<br>
+    <font color="red">SELECT * FROM user WHERE id=1 or 'A'='A'</font><br>
+    というSQL文が作成されます。このSQL文は、userというデータテーブルから、id=1もしくは'A'='A'という条件が成り立つ項目をすべて検索するという意味です。<br>
+    しかし、'A'='A'は常に成り立つため、userのすべてのデータを出力します。これが、右上の図の①にあたります。<br>
+    そのため、パスワードが適当でもログインが成功してしまいます。これが②にあたります。<br>
+    これがSQLインジェクションの一例です。
+  </div>
+</body>
+</html>

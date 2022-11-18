@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クリックジャッキング</title>
+</head>
+<body>
+    <iframe style="position:relation;" height="420px" src="http://localhost:8080/ClickJacking/NormalShop" frameborder="0" scrolling="no"></iframe>
+    <form method="post" id="apperance" action="/ClickJacking/PurchasedOrange" style="position:relative;">
+        <input type="submit" value="罠ボタン" style="position:relative; bottom:35px; left:78px; background-color:aqua;">
+    </form>
+    <form style="position:relative;">
+        <div class="text" style="position:relative;">先ほどECサイトで確認したような画面が出てきたと思います。これは、HTMLのiframeタグを利用して、ECサイトのページをここに表示しているためです。<br>
+        下のボタンで隠れているボタンを出現させたり、消したりすることができます。試してみてください。</div>
+        <input type="radio" name="opacity" onclick="disapper()">
+        消失させる<br>
+        <input type="radio" name="opacity" onclick="apper()">
+        出現させる<br>
+        <div class="text">消失させた状態と出現させた状態のそれぞれでクリックしてみてください。本来のリンクに飛ばず、罠として仕込まれたリンクへ飛ぶことが確認できると思います。</div>
+    </form>
+    <script>
+        disapper();
+
+        function apper(){
+            var apperance = document.getElementById('apperance');
+            apperance.style.opacity = 1;
+        }
+
+        function disapper(){
+            var apperance = document.getElementById('apperance');
+            apperance.style.opacity = 0;
+        }
+    </script>
+</body>
+</html>

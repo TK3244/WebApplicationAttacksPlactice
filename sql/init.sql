@@ -1,0 +1,11 @@
+SET CHARACTER_SET_CLIENT = utf8mb4;
+SET CHARACTER_SET_CONNECTION = utf8mb4;
+
+CREATE TABLE user (
+	id INT(10),
+	password VARCHAR(255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO user (id, password)
+VALUES
+(1, 'password');

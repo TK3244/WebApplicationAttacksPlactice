@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オープンリダイレクト</title>
+</head>
+<body>
+    <h1>オープンリダイレクト攻撃</h1>
+    <div>
+        オープンリダイレクト攻撃とは、webブラウザであるサイトを入力したときに、他のサイトへ自動的に移動するリダイレクトという機能を悪用した攻撃のことです。フィッシング詐欺などに悪用されます。
+        <img src="../../resources/images/openredirect.png" width="600px" alt="nothing">
+    </div><br>
+    <div>
+        それでは、オープンリダイレクト攻撃の演習を行っていきます。<br>
+        まず、以下のリンクをクリックして、どのようなものか確認してください。<br>
+        <a href="/OpenRedirect/LoginForm">オープンリダイレクト脆弱性をもったサイト</a>
+    </div><br>
+    <div>
+        以下のリンクがリダイレクト機能を悪用したものになります。アクセス後にURLを確認してもらえれば、url変数に罠サイトへのリンクが代入されていることがわかります。この変数はリダイレクト機能に使われるものであるため、ログインが成功したらそのリンクへと遷移させることができます。
+        このリンクにアクセスすることが図の③にあたります。<br>
+        これがオープンリダイレクト攻撃です。<br>
+        それでは、以下のリンクにアクセスしてオープンリダイレクト攻撃を体験してみてください。<br>
+        <a href="/OpenRedirect/LoginForm?url=http://localhost:8080/OpenRedirect/TrapSite1">罠となるリンク</a>
+    </div>
+</body>
+</html>

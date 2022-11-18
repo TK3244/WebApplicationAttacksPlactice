@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF</title>
+</head>
+<body>
+    <h1>CSRF</h1>
+    <div>
+        CSRFとは、正規のユーザーが意図していないリクエストを攻撃者が強制的に送信することで、正規のユーザーしかできないはずの操作を行うことができる攻撃のことです。<br>
+        ユーザー認証に不備のある（CSRF脆弱性をもつ）サイトに正規ユーザーがログインしている状態で、その正規ユーザーが罠サイトにアクセスしてしまうと、正規ユーザーが意図していないリクエストが送信されてしまいます。<br>
+        ユーザー認証にはCookie認証やHTTP認証などがありますが、それらの認証が不十分であるときにこの脆弱性が発生します。<br>
+        以下のCSRFテストでは、Cookieのみでセッション管理しています。<br>
+        Cookieとはブラウザ内に保存される情報のことで、これを使うことで二回目以降のアクセスで、ユーザーへの情報の提供がスムーズにできるようになります。<br>
+        しかし、Cookieのみでユーザー認証を行うとCSRF脆弱性が発生してしまいます。<br>
+        <img src="../../resources/images/csrf.png" width="600px" alt="nothing">
+    </div><br>
+    <div>
+        では、以下のリンクをクリックして動作を確認してください<br>
+        <a href="/CSRF/RegistrationForm">CSRFテスト</a>
+    </div>
+</body>
+</html>

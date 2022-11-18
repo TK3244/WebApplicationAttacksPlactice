@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="10; url=http://localhost:8080/OpenRedirect/LoginSuccess">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オープンリダイレクト</title>
+</head>
+<body>
+    <div>
+        <font color="red" size="7">あなたのIDとパスワードを盗みました！</font><br>
+        ID: {{ .id }}<br>
+        パスワード: {{ .pwd }}<br>
+        この時点で上の情報が盗まれています。実際の攻撃ではこのページは表示されないため、IDとパスワードが盗まれたことに気づくことができません。少し待つとページがログイン成功画面に遷移します。
+    </div>
+</body>
+</html>

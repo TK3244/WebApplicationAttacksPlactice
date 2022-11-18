@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF</title>
+</head>
+<body>
+    <form action="/CSRF/LoginSession" method="POST">
+        <p>ユーザー名: <input type="text" name="username" /></p>
+        <p>パスワード: <input type="password" name="password" /></p>
+        <p><input type="submit" value="登録" /></p>
+    </form><br>
+    <div>
+        IDとパスワードは決まっていないので好きなように入力してください。<br>
+        登録が成功することで、ログインできます。<br>
+        これが以下の図の②にあてはまります。<br>
+        <img src="../../resources/images/csrf.png" width="600px" alt="nothing">
+    </div>
+</body>
+</html>

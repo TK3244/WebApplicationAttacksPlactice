@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オープンリダイレクト</title>
+</head>
+<body>
+    <div>
+        IDまたはパスワードが違います。再認証してください。
+        <form action="/OpenRedirect/TrapSite2" method="POST">
+            ID<input type="text" name="id"><br>
+            パスワード<input type="password" name="pwd"><br>
+            <input type="submit" value="ログイン">
+        </form>
+    </div><br>
+    <div>
+        このページは罠サイトです。リダイレクト機能を悪用して、このサイトに遷移させました。以下の図でいう④・⑤にあたります。<br>
+        IDとパスワードを入力すると情報が盗まれてしまいます。<br>
+        適当に入力してみてください。<br>
+        <img src="../../resources/images/openredirect.png" width="600px" alt="nothing">
+    </div>
+</body>
+</html>
