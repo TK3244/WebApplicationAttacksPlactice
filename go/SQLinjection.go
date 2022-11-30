@@ -41,7 +41,7 @@ func LoginForm2(w http.ResponseWriter, r *http.Request) {
 func HandleForm(w http.ResponseWriter, r *http.Request) {
 	value := map[string]string{
 		"ID":       r.FormValue("ID"),
-		"Password": r.FormValue("password"),
+		"Password": r.FormValue("Password"),
 	}
 	req := "SELECT * FROM user WHERE id=" + value["ID"] + " AND password='" + value["Password"] + "'"
 	if row := GetData(db, req); row == 0 {
@@ -63,7 +63,6 @@ func HandleForm(w http.ResponseWriter, r *http.Request) {
 			log.Fatalf("template.Execute error err:%v", err)
 		}
 	}
-
 }
 
 func GetData(db *sql.DB, req string) int {
