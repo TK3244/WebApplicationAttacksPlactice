@@ -9,17 +9,29 @@
 <body>
     <h1 class="MainTitle">クリックジャッキング</h1>
     <div class="text">
-        クリックジャッキングとは、WEBサイト上に隠されたリンクやボタンを置いて、気づかれないようにクリックさせて、意図しない操作をさせる攻撃のことです。
-    </div>
-    <img src="../../resources/images/clickjacking.png" width="600px" alt="nothing">
+        クリックジャッキングとは、WEBサイト上に隠されたリンクやボタンを置いて、
+        気づかれないようにクリックさせて、意図しない操作をさせる攻撃のことです。
+        <img src="../../resources/images/clickjacking.png" width="600px" 
+        alt="nothing"><br>
+        ①攻撃者はまず、WEBサイト上に、HTMLのiframeというタブを使用して
+        ユーザーが普段使用しているサイトのページBを表示します。
+        そこに、攻撃者が用意したページAをJavaScriptで透明にして重ねます。<br>
+        ②ユーザーがそのサイトにアクセスしても、
+        ユーザーからはページBしか見えないため、信頼してしまいます。<br>
+        ③ユーザーがページBをクリックしたと思っても
+        隠れているページAをクリックしてしまい、
+        意図していない操作が行われてしまいます。
+    </div><br>
     <div>
-        それでは、クリックジャッキングの演習を行っていきます。まず、以下のECサイトがどのようなものかの確認を行ってください。<br>
+        それでは、クリックジャッキングの演習を行っていきます。
+        まず、以下のECサイトがどのようなものかの確認を行ってください。<br>
         <a href="/ClickJacking/NormalShop">ECサイト</a>
     </div><br>
     <div>
         ECサイトでリンゴが購入できたことが確認できましたか？<br>
         次に以下のクリックジャッキングテストをクリックしてみてください。<br>
-        <a href="/ClickJacking/ClickJackingTest">クリックジャッキングテスト</a>
+        <a href="/ClickJacking/ClickJackingTest">
+            クリックジャッキングテスト</a>
     </div>
 </body>
 </html>
